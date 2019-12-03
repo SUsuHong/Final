@@ -10,7 +10,6 @@ var cors = require('cors');
 
 // ===============================
 var bodyParser = require('body-parser');
-
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(cors());
