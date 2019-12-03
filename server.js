@@ -2,7 +2,7 @@
 // #1 Add express package to the app
 
 // ===============================
-
+var express = require('express');
 var app = express();   
 var cors = require('cors');       
 
@@ -44,4 +44,5 @@ app.use('/api', cors(), router);
 // #10 Start the server
 
 // ===============================
+
 console.log('Magic happens on http://localhost:' + port);
