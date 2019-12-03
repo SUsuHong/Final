@@ -34,7 +34,33 @@ router.get('/products/:pid', products.getProductById);
 // #4 Complete the routing for POST, PUT, DELETE
 
 // ===============================
-
+//post
+app.get('/api/products', function (req, res) { 
+    //insert data to mongodb
+    var newproduct = req.body;
+    var product = new Product(newproduct);
+    product.save(function (err){
+        if (err) res.status(500).json(err);
+        res.json({status: "Added a product"});
+    });
+  });
+//put
+app.put('/api/products/:id', function(req,res){
+    var updateproduct = req.body;
+    var id = req.params.id;
+    Product.findByIDAndUpdate(id, updateproduct, function(err){
+        if(err) res.status(500).json(err);
+        res.json({status: "Updated a product"});
+    });
+});
+//delect
+app.delect('/api/products/:id', function(req,res){
+    var id = req.params.id;
+    Product.findByIDAndRemove(id, function(err){
+        if(err) res.status(500).json(err);
+        res.json({status: "Deleted a product"});
+    });
+});
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
