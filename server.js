@@ -20,8 +20,7 @@ app.use(bodyParser.json());
 // #3 Serve static content in folder frontend
 
 // ===============================
-
-
+app.use(express.static('frontend'));
 var port = process.env.PORT || 8080; 
 
 // ROUTES FOR OUR API
